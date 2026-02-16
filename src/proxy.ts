@@ -3,7 +3,7 @@ import type { NextRequest } from "next/server";
 
 const PASSWORD_COOKIE = "site_access";
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Permetti l'accesso alla pagina di login e alle API
