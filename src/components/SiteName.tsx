@@ -10,8 +10,8 @@ export default function SiteName() {
   return (
     <Link
       href="/"
-      className={`fixed top-6 left-6 z-30 text-lg font-semibold uppercase tracking-wide transition-colors cursor-pointer ${
-        isHome ? "text-white" : "text-neutral-900"
+      className={`fixed top-6 left-6 z-30 text-lg font-normal uppercase tracking-wide transition-colors cursor-pointer ${
+        isHome ? "text-black" : "text-neutral-900"
       }`}
     >
       martina franchini

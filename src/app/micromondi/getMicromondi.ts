@@ -15,7 +15,16 @@ export function getMicromondi(): Micromondo[] {
   if (!fs.existsSync(SCULTURE_DIR)) return [];
 
   const entries = fs.readdirSync(SCULTURE_DIR, { withFileTypes: true });
-  const subdirs = entries.filter((e) => e.isDirectory()).map((e) => e.name);
+  const subdirs = entries
+    .filter((e) => e.isDirectory())
+    .map((e) => e.name)
+    .sort((a, b) => {
+      // Estrai il numero iniziale se presente
+      const numA = parseInt(a.match(/^\d+/)?.[0] || "999");
+      const numB = parseInt(b.match(/^\d+/)?.[0] || "999");
+      if (numA !== numB) return numA - numB;
+      return a.localeCompare(b);
+    });
 
   return subdirs
     .map((slug) => {

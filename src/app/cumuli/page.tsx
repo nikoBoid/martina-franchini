@@ -10,7 +10,7 @@ export default function CumuliPage() {
       <HamburgerMenu theme="light" />
 
       <div className="mx-auto max-w-6xl px-6 py-20 pt-24">
-        <h1 className="mb-12 text-4xl font-bold uppercase tracking-wide md:text-5xl">
+        <h1 className="mb-12 text-4xl font-normal uppercase tracking-wide md:text-5xl">
           Cumuli
         </h1>
 

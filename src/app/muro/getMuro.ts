@@ -10,7 +10,13 @@ export function getMuroImages(): string[] {
   const files = fs
     .readdirSync(MURO_DIR)
     .filter((f) => IMG_EXT.includes(path.extname(f).toLowerCase()))
-    .sort();
+    .sort((a, b) => {
+      // Ordina numericamente per numero nel nome del file
+      const numA = parseInt(a.match(/\d+/)?.[0] || "999");
+      const numB = parseInt(b.match(/\d+/)?.[0] || "999");
+      if (numA !== numB) return numA - numB;
+      return a.localeCompare(b);
+    });
 
   return files.map((f) => `/muro/${encodeURIComponent(f)}`);
 }

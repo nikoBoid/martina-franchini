@@ -10,4 +10,5 @@ html {
 
 body {
   background-color: var(--sfondo-panna);
+  font-weight: 400;
 }

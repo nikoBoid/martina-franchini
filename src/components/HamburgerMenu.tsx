@@ -48,7 +48,7 @@ export default function HamburgerMenu({ theme = "dark" }: { theme?: Theme }) {
 
         {/* Nav */}
         <nav className="flex h-full items-center justify-center px-6 pt-20">
-          <ul className="space-y-8 text-center text-2xl font-bold uppercase">
+          <ul className="space-y-8 text-center text-2xl font-normal uppercase">
             <li>
               <a
                 onClick={() => setOpen(false)}
@@ -61,7 +61,25 @@ export default function HamburgerMenu({ theme = "dark" }: { theme?: Theme }) {
             <li>
               <a
                 onClick={() => setOpen(false)}
-                href="#"
+                href="/selected-works"
+                className="block py-2 text-neutral-800 hover:text-neutral-500 transition-colors cursor-pointer"
+              >
+                Selected Works
+              </a>
+            </li>
+            <li>
+              <a
+                onClick={() => setOpen(false)}
+                href="/bio"
+                className="block py-2 text-neutral-800 hover:text-neutral-500 transition-colors cursor-pointer"
+              >
+                Bio
+              </a>
+            </li>
+            <li>
+              <a
+                onClick={() => setOpen(false)}
+                href="/about"
                 className="block py-2 text-neutral-800 hover:text-neutral-500 transition-colors cursor-pointer"
               >
                 About
@@ -70,34 +88,7 @@ export default function HamburgerMenu({ theme = "dark" }: { theme?: Theme }) {
             <li>
               <a
                 onClick={() => setOpen(false)}
-                href="/micromondi"
-                className="block py-2 text-neutral-800 hover:text-neutral-500 transition-colors cursor-pointer"
-              >
-                Micromondi
-              </a>
-            </li>
-            <li>
-              <a
-                onClick={() => setOpen(false)}
-                href="/cumuli"
-                className="block py-2 text-neutral-800 hover:text-neutral-500 transition-colors cursor-pointer"
-              >
-                Cumuli
-              </a>
-            </li>
-            <li>
-              <a
-                onClick={() => setOpen(false)}
-                href="/muro"
-                className="block py-2 text-neutral-800 hover:text-neutral-500 transition-colors cursor-pointer"
-              >
-                Muro
-              </a>
-            </li>
-            <li>
-              <a
-                onClick={() => setOpen(false)}
-                href="#"
+                href="/contact"
                 className="block py-2 text-neutral-800 hover:text-neutral-500 transition-colors cursor-pointer"
               >
                 Contact
