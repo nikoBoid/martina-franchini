@@ -28,15 +28,16 @@ export function getMicromondi(): Micromondo[] {
         .sort();
 
       const cover = files[0];
+      const encodedSlug = encodeURIComponent(slug);
       const images = files.map(
-        (f) => `/sculture/${slug}/${encodeURIComponent(f)}`
+        (f) => `/sculture/${encodedSlug}/${encodeURIComponent(f)}`
       );
 
       return {
         slug,
         name: slug.charAt(0).toUpperCase() + slug.slice(1),
         cover: cover
-          ? `/sculture/${slug}/${encodeURIComponent(cover)}`
+          ? `/sculture/${encodedSlug}/${encodeURIComponent(cover)}`
           : "",
         images,
       };
