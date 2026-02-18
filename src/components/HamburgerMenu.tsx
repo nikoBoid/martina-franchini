@@ -10,6 +10,13 @@ export default function HamburgerMenu({ theme = "dark" }: { theme?: Theme }) {
 
   return (
     <>
+      {/* Navbar mobile sempre fissa con sfondo bianco */}
+      <div className="fixed top-0 left-0 right-0 z-30 flex h-20 items-center bg-white px-6 md:hidden">
+        <span className="text-base font-normal uppercase tracking-wide text-neutral-900">
+          Martina Franchini
+        </span>
+      </div>
+
       {/* Hamburger button */}
       <button
         onClick={() => setOpen(true)}
