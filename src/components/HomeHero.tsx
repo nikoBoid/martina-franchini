@@ -3,20 +3,31 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const HOME_BACKGROUND_IMAGES = ["/home/DSC_0143.jpg", "/home/d.jpg", "/home/e.jpg"];
+const HOME_BACKGROUND_IMAGES_DESKTOP = [
+  "/home/HOME-PC/1.jpg",
+  "/home/HOME-PC/2.jpg",
+  "/home/HOME-PC/2%20(2).jpg",
+  "/home/HOME-PC/3.jpg",
+];
+const HOME_BACKGROUND_IMAGES_MOBILE = [
+  "/home/HOME-cell/1.jpg",
+  "/home/HOME-cell/2.jpg",
+  "/home/HOME-cell/4.jpg",
+  "/home/HOME-cell/4%20(2).JPG",
+];
 const SLIDE_INTERVAL_MS = 4500;
 
 export default function HomeHero() {
   const [imageVisible, setImageVisible] = useState(false);
   const [textVisible, setTextVisible] = useState(false);
-  const [activeSlide, setActiveSlide] = useState(0);
+  const [activeSlideTick, setActiveSlideTick] = useState(0);
 
   useEffect(() => {
     const t1 = setTimeout(() => setImageVisible(true), 200);
     const t2 = setTimeout(() => setTextVisible(true), 900);
 
     const intervalId = setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % HOME_BACKGROUND_IMAGES.length);
+      setActiveSlideTick((prev) => prev + 1);
     }, SLIDE_INTERVAL_MS);
 
     return () => {
@@ -28,35 +39,74 @@ export default function HomeHero() {
 
   return (
     <section className="relative h-screen w-full overflow-hidden bg-black">
-      {/* Slider temporaneo dello sfondo con dissolvenza */}
-      {HOME_BACKGROUND_IMAGES.map((src, index) => (
-        <div
-          key={src}
-          className={`absolute inset-0 transition-opacity duration-1200 ease-in-out ${
-            imageVisible && activeSlide === index ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          <Image
-            src={src}
-            alt=""
-            fill
-            className="object-cover"
-            sizes="100vw"
-            priority={index === 0}
-          />
-        </div>
-      ))}
+      {/* Slider desktop */}
+      <div className="absolute inset-0 hidden md:block">
+        {HOME_BACKGROUND_IMAGES_DESKTOP.map((src, index) => (
+          <div
+            key={src}
+            className={`absolute inset-0 transition-opacity duration-1200 ease-in-out ${
+              imageVisible &&
+              activeSlideTick % HOME_BACKGROUND_IMAGES_DESKTOP.length === index
+                ? "opacity-100"
+                : "opacity-0"
+            }`}
+          >
+            <Image
+              src={src}
+              alt=""
+              fill
+              className="object-cover"
+              sizes="100vw"
+              priority={index === 0}
+            />
+          </div>
+        ))}
+      </div>
 
-      {/* Scritta Martina Franchini nera con ombra, a sinistra, un quarto pagina più in alto */}
+      {/* Slider mobile */}
+      <div className="absolute inset-0 md:hidden">
+        {HOME_BACKGROUND_IMAGES_MOBILE.map((src, index) => (
+          <div
+            key={src}
+            className={`absolute inset-0 transition-opacity duration-1200 ease-in-out ${
+              imageVisible &&
+              activeSlideTick % HOME_BACKGROUND_IMAGES_MOBILE.length === index
+                ? "opacity-100"
+                : "opacity-0"
+            }`}
+          >
+            <Image
+              src={src}
+              alt=""
+              fill
+              className="object-cover"
+              sizes="100vw"
+              priority={index === 0}
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* Scritta Martina Franchini */}
       <div
-        className={`absolute inset-0 flex items-center z-20 pointer-events-none transition-all duration-700 ease-out ${
+        className={`absolute inset-0 z-20 pointer-events-none transition-all duration-700 ease-out ${
           textVisible ? "opacity-100" : "opacity-0"
         }`}
-        style={{ paddingTop: "25vh", alignItems: "flex-start" }}
       >
-        <h1 className="text-4xl md:text-6xl font-normal uppercase text-white drop-shadow-[0_3px_10px_rgba(0,0,0,0.6)] text-left px-8 md:px-12 max-w-4xl">
-          Martina Franchini
-        </h1>
+        <div className="absolute top-20 left-0 right-0 md:hidden">
+          <h1 className="w-full bg-black px-6 py-2 text-center text-4xl font-normal uppercase tracking-wide text-white">
+            Martina Franchini
+          </h1>
+        </div>
+
+        <div
+          className="hidden h-full items-start md:flex"
+          style={{ paddingTop: "25vh", alignItems: "flex-start" }}
+        >
+          <h1 className="inline-block bg-black px-6 py-3 text-6xl font-normal uppercase tracking-wide text-white text-left">
+            Martina Franchini
+          </h1>
+        </div>
       </div>
     </section>
   );
