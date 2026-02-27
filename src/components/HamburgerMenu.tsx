@@ -8,10 +8,12 @@ export default function HamburgerMenu({
   theme = "dark",
   showMobileBrand = true,
   showDesktopNavbarBg = false,
+  showNavbarBorder = false,
 }: {
   theme?: Theme;
   showMobileBrand?: boolean;
   showDesktopNavbarBg?: boolean;
+  showNavbarBorder?: boolean;
 }) {
   const [open, setOpen] = useState(false);
   const iconColor = theme === "light" ? "bg-neutral-800" : "bg-white";
@@ -19,7 +21,11 @@ export default function HamburgerMenu({
   return (
     <>
       {/* Navbar mobile sempre fissa con sfondo bianco */}
-      <div className="fixed top-0 left-0 right-0 z-30 flex h-20 items-center border-b border-[#000000] bg-white px-6 shadow-none md:hidden">
+      <div
+        className={`fixed top-0 left-0 right-0 z-30 flex h-20 items-center bg-white px-6 shadow-none md:hidden ${
+          showNavbarBorder ? "border-b border-[#000000]" : ""
+        }`}
+      >
         {showMobileBrand && (
           <span className="text-base font-normal uppercase tracking-wide text-neutral-900">
             Martina Franchini
@@ -30,7 +36,9 @@ export default function HamburgerMenu({
       {/* Navbar desktop opzionale con sfondo bianco */}
       {showDesktopNavbarBg && (
         <div
-          className="fixed top-0 left-0 right-0 z-30 hidden h-20 border-b border-black bg-white md:block"
+          className={`fixed top-0 left-0 right-0 z-30 hidden h-20 bg-white md:block ${
+            showNavbarBorder ? "border-b border-black" : ""
+          }`}
           aria-hidden="true"
         />
       )}
