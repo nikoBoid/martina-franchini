@@ -93,20 +93,6 @@ export default function HomeHero() {
           textVisible ? "opacity-100" : "opacity-0"
         }`}
       >
-        <div className="absolute top-20 left-0 right-0 md:hidden">
-          <h1 className="w-full bg-black px-6 py-2 text-center text-4xl font-normal uppercase tracking-wide text-white">
-            Martina Franchini
-          </h1>
-        </div>
-
-        <div
-          className="hidden h-full items-start md:flex"
-          style={{ paddingTop: "25vh", alignItems: "flex-start" }}
-        >
-          <h1 className="inline-block bg-black px-6 py-3 text-6xl font-normal uppercase tracking-wide text-white text-left">
-            Martina Franchini
-          </h1>
-        </div>
       </div>
     </section>
   );

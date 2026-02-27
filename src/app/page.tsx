@@ -4,7 +4,7 @@ import HomeHero from "@/components/HomeHero";
 export default function Page() {
   return (
     <>
-      <HamburgerMenu theme="light" showMobileBrand={false} showDesktopNavbarBg />
+      <HamburgerMenu theme="light" showDesktopNavbarBg />
       <HomeHero />
     </>
   );
