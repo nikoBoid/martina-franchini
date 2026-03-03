@@ -7,7 +7,7 @@ type Theme = "dark" | "light";
 export default function HamburgerMenu({
   theme = "dark",
   showMobileBrand = true,
-  showDesktopNavbarBg = false,
+  showDesktopNavbarBg = true,
   showNavbarBorder = false,
 }: {
   theme?: Theme;
@@ -22,12 +22,15 @@ export default function HamburgerMenu({
     <>
       {/* Navbar mobile sempre fissa con sfondo bianco */}
       <div
-        className={`fixed top-0 left-0 right-0 z-30 flex h-20 items-center bg-white px-6 shadow-none md:hidden ${
+        className={`fixed top-0 left-0 right-0 z-9999 flex h-20 items-center bg-white px-6 shadow-none md:hidden ${
           showNavbarBorder ? "border-b border-[#000000]" : ""
         }`}
       >
         {showMobileBrand && (
-          <span className="text-base font-normal uppercase tracking-wide text-neutral-900">
+          <span
+            translate="no"
+            className="notranslate text-base font-normal uppercase tracking-wide text-neutral-900"
+          >
             Martina Franchini
           </span>
         )}
@@ -36,7 +39,7 @@ export default function HamburgerMenu({
       {/* Navbar desktop opzionale con sfondo bianco */}
       {showDesktopNavbarBg && (
         <div
-          className={`fixed top-0 left-0 right-0 z-30 hidden h-20 bg-white md:block ${
+          className={`fixed top-0 left-0 right-0 z-9999 hidden h-20 bg-white md:block ${
             showNavbarBorder ? "border-b border-black" : ""
           }`}
           aria-hidden="true"
@@ -46,7 +49,7 @@ export default function HamburgerMenu({
       {/* Hamburger button */}
       <button
         onClick={() => setOpen(true)}
-        className="group fixed top-6 right-6 z-40 flex h-10 w-10 flex-col items-center justify-center gap-1.5 cursor-pointer transition-transform duration-200 hover:scale-110"
+        className="group fixed top-6 right-6 z-10010 flex h-10 w-10 flex-col items-center justify-center gap-1.5 cursor-pointer transition-transform duration-200 hover:scale-110"
         aria-label="Apri menu"
       >
         <span className={`h-[2px] w-6 ${iconColor} transition-all duration-200 group-hover:w-7`} />
@@ -57,7 +60,7 @@ export default function HamburgerMenu({
       {/* Overlay scuro (85% della pagina) - chiude il menu al click */}
       <div
         onClick={() => setOpen(false)}
-        className={`fixed inset-0 z-40 bg-black/50 transition-opacity duration-300 cursor-pointer ${
+        className={`fixed inset-0 z-10020 bg-black/50 transition-opacity duration-300 cursor-pointer ${
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         aria-hidden="true"
@@ -65,7 +68,7 @@ export default function HamburgerMenu({
 
       {/* Pannello slider 15% da destra */}
       <div
-        className={`fixed top-0 right-0 z-50 h-full w-[15vw] min-w-[200px] max-w-[280px] bg-white text-neutral-900 shadow-[-4px_0_24px_rgba(0,0,0,0.12)] transition-transform duration-300 ease-out ${
+        className={`fixed top-0 right-0 z-10030 h-full w-[15vw] min-w-[200px] max-w-[280px] bg-white text-neutral-900 shadow-[-4px_0_24px_rgba(0,0,0,0.12)] transition-transform duration-300 ease-out ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -80,13 +83,14 @@ export default function HamburgerMenu({
         </button>
 
         {/* Nav */}
-        <nav className="flex h-full items-center justify-center px-6 pt-20">
+        <nav className="flex h-full items-center justify-center px-6 pt-20" translate="no">
           <ul className="space-y-8 text-center text-2xl font-normal uppercase">
             <li>
               <a
                 onClick={() => setOpen(false)}
                 href="/"
-                className="block py-2 text-neutral-800 hover:text-neutral-500 transition-colors cursor-pointer"
+                translate="no"
+                className="notranslate block py-2 text-neutral-800 hover:text-neutral-500 transition-colors cursor-pointer"
               >
                 Home
               </a>
@@ -95,7 +99,8 @@ export default function HamburgerMenu({
               <a
                 onClick={() => setOpen(false)}
                 href="/selected-works"
-                className="block py-2 text-neutral-800 hover:text-neutral-500 transition-colors cursor-pointer"
+                translate="no"
+                className="notranslate block py-2 text-neutral-800 hover:text-neutral-500 transition-colors cursor-pointer"
               >
                 Selected Works
               </a>
@@ -104,7 +109,8 @@ export default function HamburgerMenu({
               <a
                 onClick={() => setOpen(false)}
                 href="/bio"
-                className="block py-2 text-neutral-800 hover:text-neutral-500 transition-colors cursor-pointer"
+                translate="no"
+                className="notranslate block py-2 text-neutral-800 hover:text-neutral-500 transition-colors cursor-pointer"
               >
                 Bio
               </a>
@@ -113,7 +119,8 @@ export default function HamburgerMenu({
               <a
                 onClick={() => setOpen(false)}
                 href="/about"
-                className="block py-2 text-neutral-800 hover:text-neutral-500 transition-colors cursor-pointer"
+                translate="no"
+                className="notranslate block py-2 text-neutral-800 hover:text-neutral-500 transition-colors cursor-pointer"
               >
                 About
               </a>
@@ -122,7 +129,8 @@ export default function HamburgerMenu({
               <a
                 onClick={() => setOpen(false)}
                 href="/contact"
-                className="block py-2 text-neutral-800 hover:text-neutral-500 transition-colors cursor-pointer"
+                translate="no"
+                className="notranslate block py-2 text-neutral-800 hover:text-neutral-500 transition-colors cursor-pointer"
               >
                 Contact
               </a>

@@ -12,8 +12,11 @@ const HOME_BACKGROUND_IMAGES_DESKTOP = [
 const HOME_BACKGROUND_IMAGES_MOBILE = [
   "/home/HOME-cell/1.jpg",
   "/home/HOME-cell/2.jpg",
+  "/home/HOME-cell/3.jpg",
   "/home/HOME-cell/4.jpg",
-  "/home/HOME-cell/4%20(2).JPG",
+  "/home/HOME-cell/5.jpg",
+  "/home/HOME-cell/6.jpg",
+  "/home/HOME-cell/7.jpg",
 ];
 const SLIDE_INTERVAL_MS = 4500;
 

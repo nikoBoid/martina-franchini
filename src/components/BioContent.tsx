@@ -1,8 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
-const bio = `Martina Franchini was born in 1995 in Verona (VR). She lives and work in Milan.`;
+const bio = `Martina Franchini was born in Verona in 1995. She earned a Bachelor's Degree in Painting from the Cignaroli Academy of Fine Arts in Verona, followed in 2022 by a Master's Degree in Painting from the Brera Academy of Fine Arts. She currently lives and works in Milan.`;
 
 const exhibitions = [
   {
@@ -103,9 +104,26 @@ export default function BioContent() {
   return (
     <>
       <AnimateIn>
+        <div className="mb-10">
+          <Image
+            src="/bio.jpg"
+            alt="Martina Franchini portrait"
+            width={1200}
+            height={1600}
+            className="h-auto w-full object-cover"
+            priority
+          />
+        </div>
+      </AnimateIn>
+
+      <AnimateIn delay={80}>
         <p className="text-lg leading-relaxed font-normal text-black mb-20">
           {bio}
         </p>
+      </AnimateIn>
+
+      <AnimateIn delay={120}>
+        <div className="mb-12 border-t border-black/30" aria-hidden="true" />
       </AnimateIn>
 
       <AnimateIn delay={150}>
