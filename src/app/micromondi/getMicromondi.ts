@@ -7,6 +7,7 @@ const IMG_EXT = [".jpg", ".jpeg", ".png", ".webp", ".gif"];
 export type Micromondo = {
   slug: string;
   name: string;
+  didascalia: string;
   cover: string;
   images: string[];
 };
@@ -29,6 +30,7 @@ export function getMicromondi(): Micromondo[] {
   return subdirs
     .map((slug) => {
       const dir = path.join(SCULTURE_DIR, slug);
+      const didFilePath = path.join(dir, "did.txt");
       const files = fs
         .readdirSync(dir)
         .filter((f) =>
@@ -38,13 +40,18 @@ export function getMicromondi(): Micromondo[] {
 
       const cover = files[0];
       const encodedSlug = encodeURIComponent(slug);
+      const visibleName = slug.replace(/^\d+\s+/, "").trim();
+      const didascalia = fs.existsSync(didFilePath)
+        ? fs.readFileSync(didFilePath, "utf8").trim()
+        : "";
       const images = files.map(
         (f) => `/sculture/${encodedSlug}/${encodeURIComponent(f)}`
       );
 
       return {
         slug,
-        name: slug.charAt(0).toUpperCase() + slug.slice(1),
+        name: visibleName || slug,
+        didascalia,
         cover: cover
           ? `/sculture/${encodedSlug}/${encodeURIComponent(cover)}`
           : "",

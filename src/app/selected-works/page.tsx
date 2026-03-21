@@ -1,23 +1,23 @@
 import HamburgerMenu from "@/components/HamburgerMenu";
 import SelectedWorksGallery from "@/components/SelectedWorksGallery";
 import { getMicromondi } from "@/app/micromondi/getMicromondi";
-import { getCumuliImages } from "@/app/cumuli/getCumuli";
-import { getMuroImages } from "@/app/muro/getMuro";
+import { getCumuliOpere } from "@/app/cumuli/getCumuli";
+import { getMuroOpere } from "@/app/muro/getMuro";
 
 export default function SelectedWorksPage() {
   const micromondi = getMicromondi();
-  const muroImages = getMuroImages();
-  const cumuliImages = getCumuliImages();
+  const muroOpere = getMuroOpere();
+  const cumuliOpere = getCumuliOpere();
 
   return (
-    <section className="min-h-screen w-full bg-[var(--sfondo-panna)] text-neutral-900">
+    <section className="min-h-screen w-full bg-white text-neutral-900">
       <HamburgerMenu theme="light" />
 
       <div className="mx-auto max-w-6xl px-6 py-20 pt-24">
         <SelectedWorksGallery
           micromondi={micromondi}
-          muroImages={muroImages}
-          cumuliImages={cumuliImages}
+          muroOpere={muroOpere}
+          cumuliOpere={cumuliOpere}
         />
       </div>
     </section>

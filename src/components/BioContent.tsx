@@ -3,7 +3,9 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
-const bio = `Martina Franchini was born in Verona in 1995. She earned a Bachelor's Degree in Painting from the Cignaroli Academy of Fine Arts in Verona, followed in 2022 by a Master's Degree in Painting from the Brera Academy of Fine Arts. She currently lives and works in Milan.`;
+const bioIT = `Martina Franchini nasce a Verona nel 1995. Consegue il Diploma Accademico di primo livello in Pittura presso l'Accademia di Belle Arti Cignaroli di Verona e nel 2022 il Diploma Accademico di secondo livello in Pittura presso l'Accademia di Belle Arti di Brera. Attualmente vive e lavora a Milano.`;
+
+const bioEN = `Martina Franchini was born in Verona in 1995. She earned a Bachelor's Degree in Painting from the Cignaroli Academy of Fine Arts in Verona, followed in 2022 by a Master's Degree in Painting from the Brera Academy of Fine Arts. She currently lives and works in Milan.`;
 
 const exhibitions = [
   {
@@ -101,6 +103,8 @@ function AnimateIn({
 }
 
 export default function BioContent() {
+  const [lang, setLang] = useState<"it" | "en">("it");
+
   return (
     <>
       <AnimateIn>
@@ -117,8 +121,34 @@ export default function BioContent() {
       </AnimateIn>
 
       <AnimateIn delay={80}>
-        <p className="text-lg leading-relaxed font-normal text-black mb-20">
-          {bio}
+        <div className="mb-8">
+          <div className="flex gap-0 border-b border-black/20">
+            <button
+              type="button"
+              onClick={() => setLang("it")}
+              className={`-mb-px border-b-2 px-4 py-2 text-sm font-normal uppercase tracking-wide transition-colors cursor-pointer ${
+                lang === "it"
+                  ? "border-black text-black"
+                  : "border-transparent text-black/50 hover:text-black/70"
+              }`}
+            >
+              IT
+            </button>
+            <button
+              type="button"
+              onClick={() => setLang("en")}
+              className={`-mb-px border-b-2 px-4 py-2 text-sm font-normal uppercase tracking-wide transition-colors cursor-pointer ${
+                lang === "en"
+                  ? "border-black text-black"
+                  : "border-transparent text-black/50 hover:text-black/70"
+              }`}
+            >
+              EN
+            </button>
+          </div>
+        </div>
+        <p className="mb-20 text-lg leading-relaxed font-normal text-black">
+          {lang === "it" ? bioIT : bioEN}
         </p>
       </AnimateIn>
 

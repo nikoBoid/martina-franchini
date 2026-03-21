@@ -1,12 +1,12 @@
 import HamburgerMenu from "@/components/HamburgerMenu";
 import CumuliGallery from "@/components/CumuliGallery";
-import { getCumuliImages } from "./getCumuli";
+import { getCumuliOpere } from "./getCumuli";
 
 export default function CumuliPage() {
-  const images = getCumuliImages();
+  const opere = getCumuliOpere();
 
   return (
-    <section className="min-h-screen w-full bg-[var(--sfondo-panna)] text-neutral-900">
+    <section className="min-h-screen w-full bg-(--sfondo-panna) text-neutral-900">
       <HamburgerMenu theme="light" />
 
       <div className="mx-auto max-w-6xl px-6 py-20 pt-24">
@@ -14,7 +14,7 @@ export default function CumuliPage() {
           Cumuli
         </h1>
 
-        <CumuliGallery images={images} />
+        <CumuliGallery opere={opere} />
       </div>
     </section>
   );

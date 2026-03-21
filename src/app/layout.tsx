@@ -29,9 +29,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" translate="no" className="notranslate">
+      <head>
+        <meta name="google" content="notranslate" />
+      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${karla.variable} ${karla.className} antialiased`}
+        translate="no"
+        className={`${geistSans.variable} ${geistMono.variable} ${karla.variable} ${karla.className} antialiased notranslate`}
       >
         <SiteName />
         {children}

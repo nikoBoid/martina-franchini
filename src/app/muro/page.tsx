@@ -1,12 +1,12 @@
 import HamburgerMenu from "@/components/HamburgerMenu";
 import MuroGallery from "@/components/MuroGallery";
-import { getMuroImages } from "./getMuro";
+import { getMuroOpere } from "./getMuro";
 
 export default function MuroPage() {
-  const images = getMuroImages();
+  const opere = getMuroOpere();
 
   return (
-    <section className="min-h-screen w-full bg-[var(--sfondo-panna)] text-neutral-900">
+    <section className="min-h-screen w-full bg-white text-neutral-900">
       <HamburgerMenu theme="light" />
 
       <div className="mx-auto max-w-6xl px-6 py-20 pt-24">
@@ -14,7 +14,7 @@ export default function MuroPage() {
           Muro
         </h1>
 
-        <MuroGallery images={images} />
+        <MuroGallery opere={opere} />
       </div>
     </section>
   );
