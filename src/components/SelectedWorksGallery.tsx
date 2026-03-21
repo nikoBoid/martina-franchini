@@ -64,7 +64,7 @@ export default function SelectedWorksGallery({
               <button
                 type="button"
                 onClick={() => setOpen(m)}
-                className="relative block aspect-4/3 w-full overflow-hidden rounded-lg border border-neutral-300 bg-white text-left cursor-pointer md:border-0 focus:outline-none focus:ring-2 focus:ring-neutral-400 focus:ring-offset-2 focus:ring-offset-white"
+                className="relative block aspect-4/3 w-full overflow-hidden rounded-lg bg-white text-left cursor-pointer focus:outline-none focus:ring-2 focus:ring-neutral-400 focus:ring-offset-2 focus:ring-offset-white"
               >
                 <Image
                   src={m.cover}
@@ -75,8 +75,8 @@ export default function SelectedWorksGallery({
                 />
               </button>
               <div className="mt-3 text-center">
-                <p className="text-base font-medium uppercase tracking-wide text-neutral-900">{m.name}</p>
-                <p className="mt-1 text-sm leading-relaxed text-neutral-600">
+                <p className="text-sm font-medium uppercase tracking-wide text-neutral-900">{m.name}</p>
+                <p className="mt-1 text-[11px] leading-tight text-neutral-600">
                   {m.didascalia || getDummyCaption(index)}
                 </p>
               </div>
@@ -97,7 +97,7 @@ export default function SelectedWorksGallery({
                 <button
                   type="button"
                   onClick={() => setOpen({ name: opera.name, images: opera.images })}
-                  className="relative block aspect-4/3 w-full overflow-hidden rounded-lg border border-neutral-300 bg-(--sfondo-panna) text-left cursor-pointer md:border-0 focus:outline-none focus:ring-2 focus:ring-neutral-400 focus:ring-offset-2 focus:ring-offset-(--sfondo-panna)"
+                  className="relative block aspect-4/3 w-full overflow-hidden rounded-lg bg-white text-left cursor-pointer focus:outline-none focus:ring-2 focus:ring-neutral-400 focus:ring-offset-2 focus:ring-offset-white"
                 >
                   <Image
                     src={opera.cover}
@@ -108,10 +108,10 @@ export default function SelectedWorksGallery({
                   />
                 </button>
                 <div className="mt-3 text-center">
-                  <p className="text-base font-medium uppercase tracking-wide text-neutral-900">
+                  <p className="text-sm font-medium uppercase tracking-wide text-neutral-900">
                     {opera.name}
                   </p>
-                  <p className="mt-1 text-sm leading-relaxed text-neutral-600">
+                  <p className="mt-1 text-[11px] leading-tight text-neutral-600">
                     {opera.didascalia || getDummyCaption(index)}
                   </p>
                 </div>
@@ -133,7 +133,7 @@ export default function SelectedWorksGallery({
                 <button
                   type="button"
                   onClick={() => setOpen({ name: opera.name, images: opera.images })}
-                  className="relative block aspect-4/3 w-full overflow-hidden rounded-lg border border-neutral-300 bg-(--sfondo-panna) text-left cursor-pointer md:border-0 focus:outline-none focus:ring-2 focus:ring-neutral-400 focus:ring-offset-2 focus:ring-offset-(--sfondo-panna)"
+                  className="relative block aspect-4/3 w-full overflow-hidden rounded-lg bg-white text-left cursor-pointer focus:outline-none focus:ring-2 focus:ring-neutral-400 focus:ring-offset-2 focus:ring-offset-white"
                 >
                   <Image
                     src={opera.cover}
@@ -144,10 +144,10 @@ export default function SelectedWorksGallery({
                   />
                 </button>
                 <div className="mt-3 text-center">
-                  <p className="text-base font-medium uppercase tracking-wide text-neutral-900">
+                  <p className="text-sm font-medium uppercase tracking-wide text-neutral-900">
                     {opera.name}
                   </p>
-                  <p className="mt-1 text-sm leading-relaxed text-neutral-600">
+                  <p className="mt-1 text-[11px] leading-tight text-neutral-600">
                     {opera.didascalia || getDummyCaption(index)}
                   </p>
                 </div>
@@ -195,7 +195,7 @@ export default function SelectedWorksGallery({
             >
               <ul className="mx-auto grid w-full max-w-4xl grid-cols-1 gap-6 lg:grid-cols-2">
                 {open.images.map((src) => (
-                  <li key={src} className="relative aspect-4/3 overflow-hidden rounded-lg bg-(--sfondo-panna)">
+                  <li key={src} className="relative aspect-4/3 overflow-hidden rounded-lg bg-white">
                     <button
                       type="button"
                       onClick={() => setFullImage(src)}

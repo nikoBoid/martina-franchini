@@ -6,7 +6,7 @@ export default function CumuliPage() {
   const opere = getCumuliOpere();
 
   return (
-    <section className="min-h-screen w-full bg-(--sfondo-panna) text-neutral-900">
+    <section className="min-h-screen w-full bg-white text-neutral-900">
       <HamburgerMenu theme="light" />
 
       <div className="mx-auto max-w-6xl px-6 py-20 pt-24">

@@ -48,7 +48,7 @@ export default function MicromondiGallery({ micromondi }: Props) {
             <button
               type="button"
               onClick={() => setOpen(m)}
-              className="relative block aspect-4/3 w-full overflow-hidden rounded-lg bg-neutral-900 text-left cursor-pointer focus:outline-none focus:ring-2 focus:ring-neutral-400 focus:ring-offset-2 focus:ring-offset-(--sfondo-panna)"
+              className="relative block aspect-4/3 w-full overflow-hidden rounded-lg bg-neutral-900 text-left cursor-pointer focus:outline-none focus:ring-2 focus:ring-neutral-400 focus:ring-offset-2 focus:ring-offset-white"
             >
               <Image
                 src={m.cover}
