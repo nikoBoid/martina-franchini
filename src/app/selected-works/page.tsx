@@ -3,8 +3,10 @@ import SelectedWorksGallery from "@/components/SelectedWorksGallery";
 import { getMicromondi } from "@/app/micromondi/getMicromondi";
 import { getCumuliOpere } from "@/app/cumuli/getCumuli";
 import { getMuroOpere } from "@/app/muro/getMuro";
+import { getNuovaInstallazione } from "./getNuovaInstallazione";
 
 export default function SelectedWorksPage() {
+  const nuovaInstallazione = getNuovaInstallazione();
   const micromondi = getMicromondi();
   const muroOpere = getMuroOpere();
   const cumuliOpere = getCumuliOpere();
@@ -15,6 +17,7 @@ export default function SelectedWorksPage() {
 
       <div className="mx-auto max-w-6xl px-6 py-20 pt-24">
         <SelectedWorksGallery
+          nuovaInstallazione={nuovaInstallazione}
           micromondi={micromondi}
           muroOpere={muroOpere}
           cumuliOpere={cumuliOpere}

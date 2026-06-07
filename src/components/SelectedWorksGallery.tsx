@@ -6,8 +6,10 @@ import { createPortal } from "react-dom";
 import type { Micromondo } from "@/app/micromondi/getMicromondi";
 import type { MuroOpera } from "@/app/muro/getMuro";
 import type { CumuliOpera } from "@/app/cumuli/getCumuli";
+import type { NuovaInstallazione } from "@/app/selected-works/getNuovaInstallazione";
 
 type Props = {
+  nuovaInstallazione: NuovaInstallazione | null;
   micromondi: Micromondo[];
   muroOpere: MuroOpera[];
   cumuliOpere: CumuliOpera[];
@@ -24,6 +26,7 @@ function getDummyCaption(index: number) {
 }
 
 export default function SelectedWorksGallery({
+  nuovaInstallazione,
   micromondi,
   muroOpere,
   cumuliOpere,
@@ -53,6 +56,40 @@ export default function SelectedWorksGallery({
 
   return (
     <>
+      {nuovaInstallazione && (
+        <section className="mt-8 mb-24 md:mt-12">
+          <ul className="grid grid-cols-1 gap-10">
+            <li className="mx-auto w-full max-w-4xl">
+              <button
+                type="button"
+                onClick={() => setOpen(nuovaInstallazione)}
+                className="relative block aspect-4/3 w-full overflow-hidden rounded-lg bg-white text-left cursor-pointer focus:outline-none focus:ring-2 focus:ring-neutral-400 focus:ring-offset-2 focus:ring-offset-white"
+              >
+                <Image
+                  src={nuovaInstallazione.cover}
+                  alt=""
+                  fill
+                  className="object-cover md:object-contain"
+                  sizes="(max-width: 1024px) 100vw, 896px"
+                />
+              </button>
+              <div className="mt-3 text-center">
+                {nuovaInstallazione.name && (
+                  <p className="text-xs font-medium uppercase tracking-wide text-neutral-900">
+                    {nuovaInstallazione.name}
+                  </p>
+                )}
+                {nuovaInstallazione.didascalia && (
+                  <p className="mt-1 text-[11px] leading-tight text-neutral-600">
+                    {nuovaInstallazione.didascalia}
+                  </p>
+                )}
+              </div>
+            </li>
+          </ul>
+        </section>
+      )}
+
       {/* Sezione MICROMONDI */}
       <section className="mb-24">
         <h2 className="mb-12 text-4xl font-normal uppercase tracking-wide text-neutral-900">
@@ -75,7 +112,7 @@ export default function SelectedWorksGallery({
                 />
               </button>
               <div className="mt-3 text-center">
-                <p className="text-sm font-medium uppercase tracking-wide text-neutral-900">{m.name}</p>
+                <p className="text-xs font-medium uppercase tracking-wide text-neutral-900">{m.name}</p>
                 <p className="mt-1 text-[11px] leading-tight text-neutral-600">
                   {m.didascalia || getDummyCaption(index)}
                 </p>
@@ -108,7 +145,7 @@ export default function SelectedWorksGallery({
                   />
                 </button>
                 <div className="mt-3 text-center">
-                  <p className="text-sm font-medium uppercase tracking-wide text-neutral-900">
+                  <p className="text-xs font-medium uppercase tracking-wide text-neutral-900">
                     {opera.name}
                   </p>
                   <p className="mt-1 text-[11px] leading-tight text-neutral-600">
@@ -144,7 +181,7 @@ export default function SelectedWorksGallery({
                   />
                 </button>
                 <div className="mt-3 text-center">
-                  <p className="text-sm font-medium uppercase tracking-wide text-neutral-900">
+                  <p className="text-xs font-medium uppercase tracking-wide text-neutral-900">
                     {opera.name}
                   </p>
                   <p className="mt-1 text-[11px] leading-tight text-neutral-600">

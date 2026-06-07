@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const textIT = `Martina Franchini lavora a partire dal recupero di scarti edilizi, utilizzati come materiali di costruzione e trasformazione. Attraverso installazioni scultoree concepite come ambienti ideali e utopici, l'artista indaga la nozione di struttura e identità, richiamando una dimensione urbana instabile.
+const textIT = `Martina Franchini lavora a partire dal recupero di scarti edilizi, utilizzati come materiali di costruzione e trasformazione. Attraverso installazioni scultoree concepite come ambienti ideali e utopici, l'artista indaga la nozione di struttura e identità.
 La distruzione è parte integrante del processo: le opere attraversano numerose fasi di smontaggio e ricostruzione, giungendo a una forma finale solo dopo un tempo dilatato e stratificato. Controllo e improvvisazione convivono in equilibri rigorosi ma precari, dove la trasformazione diventa il presupposto per la costruzione di nuovi assetti temporanei.`;
 
 const textEN = `Martina Franchini works through the recovery of discarded construction materials, used as elements of transformation and reconfiguration. Through sculptural installations conceived as ideal and utopian environments, the artist investigates notions of structure and identity, evoking an unstable urban dimension.
