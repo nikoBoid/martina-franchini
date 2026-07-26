@@ -12,3 +12,11 @@ body {
   background-color: var(--sfondo-panna);
   font-weight: 400;
 }
+
+.project-thumbnails {
+  scrollbar-width: none;
+}
+
+.project-thumbnails::-webkit-scrollbar {
+  display: none;
+}

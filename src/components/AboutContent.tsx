@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 const textIT = `Martina Franchini lavora a partire dal recupero di scarti edilizi, utilizzati come materiali di costruzione e trasformazione. Attraverso installazioni scultoree concepite come ambienti ideali e utopici, l'artista indaga la nozione di struttura e identità.
 La distruzione è parte integrante del processo: le opere attraversano numerose fasi di smontaggio e ricostruzione, giungendo a una forma finale solo dopo un tempo dilatato e stratificato. Controllo e improvvisazione convivono in equilibri rigorosi ma precari, dove la trasformazione diventa il presupposto per la costruzione di nuovi assetti temporanei.`;
@@ -11,6 +11,8 @@ Destruction is an integral part of the process: the works undergo multiple phase
 const YOUTUBE_VIDEO_ID = "tG4vBK4RAwY";
 const YOUTUBE_START_SECONDS = 225;
 const VIDEO_TITLE = "MARTINA FRANCHINI | MICROMONDI – studiovisit";
+const INTERVIEW_URL =
+  "https://www.salonbrera.com/2026/07/13/martina-franchini-di-cecilia-pisano/";
 
 function AnimateIn({
   children,
@@ -73,6 +75,50 @@ export default function AboutContent() {
             Apri su YouTube
           </a>
         </div>
+      </AnimateIn>
+
+      <AnimateIn delay={120}>
+        <article className="mb-16 border-y border-black/20 py-7">
+          <div className="flex items-center justify-between gap-6">
+            <p className="text-[11px] font-normal uppercase tracking-[0.2em] text-black/55">
+              Intervista · Salon Brera
+            </p>
+            <time
+              dateTime="2026-07-13"
+              className="shrink-0 text-[11px] tabular-nums text-black/45"
+            >
+              13.07.2026
+            </time>
+          </div>
+
+          <h2 className="mt-5 text-2xl font-normal leading-tight text-black sm:text-3xl">
+            Macerie dorate
+          </h2>
+          <p className="mt-2 text-sm font-normal text-black/60">
+            Martina Franchini, intervista di Cecilia Pisano
+          </p>
+          <p className="mt-5 max-w-xl text-base font-normal leading-relaxed text-black/75">
+            Una conversazione nello studio dell&apos;artista sul recupero dei
+            materiali edilizi, la trasformazione della materia e la ricerca di
+            equilibrio tra peso e leggerezza.
+          </p>
+
+          <a
+            href={INTERVIEW_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group mt-6 inline-flex items-center gap-3 text-sm font-normal text-black underline decoration-black/35 underline-offset-4 transition-colors hover:decoration-black"
+            aria-label="Leggi l'intervista completa su Salon Brera, si apre in una nuova scheda"
+          >
+            Leggi l&apos;intervista su Salon Brera
+            <span
+              aria-hidden="true"
+              className="transition-transform duration-200 group-hover:translate-x-1"
+            >
+              ↗
+            </span>
+          </a>
+        </article>
       </AnimateIn>
 
       <AnimateIn delay={200}>

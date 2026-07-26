@@ -7,6 +7,8 @@ import type { Micromondo } from "@/app/micromondi/getMicromondi";
 import type { MuroOpera } from "@/app/muro/getMuro";
 import type { CumuliOpera } from "@/app/cumuli/getCumuli";
 import type { NuovaInstallazione } from "@/app/selected-works/getNuovaInstallazione";
+import ArtworkSliderModal from "@/components/ArtworkSliderModal";
+import ProjectImagePreview from "@/components/ProjectImagePreview";
 
 type Props = {
   nuovaInstallazione: NuovaInstallazione | null;
@@ -73,6 +75,11 @@ export default function SelectedWorksGallery({
                   sizes="(max-width: 1024px) 100vw, 896px"
                 />
               </button>
+              <ProjectImagePreview
+                images={nuovaInstallazione.images}
+                projectName={nuovaInstallazione.name}
+                onOpen={() => setOpen(nuovaInstallazione)}
+              />
               <div className="mt-3 text-center">
                 {nuovaInstallazione.name && (
                   <p className="text-xs font-medium uppercase tracking-wide text-neutral-900">
@@ -92,7 +99,7 @@ export default function SelectedWorksGallery({
 
       {/* Sezione MICROMONDI */}
       <section className="mb-24">
-        <h2 className="mb-12 text-4xl font-normal uppercase tracking-wide text-neutral-900">
+        <h2 className="mb-12 text-4xl font-normal uppercase tracking-wide text-neutral-900 md:text-center">
           Micromondi
         </h2>
         <ul className="grid grid-cols-1 gap-10">
@@ -111,8 +118,13 @@ export default function SelectedWorksGallery({
                   sizes="(max-width: 1024px) 100vw, 896px"
                 />
               </button>
+              <ProjectImagePreview
+                images={m.images}
+                projectName={m.name}
+                onOpen={() => setOpen(m)}
+              />
               <div className="mt-3 text-center">
-                <p className="text-xs font-medium uppercase tracking-wide text-neutral-900">{m.name}</p>
+                <p className="text-xs font-normal uppercase tracking-wide text-neutral-900">{m.name}</p>
                 <p className="mt-1 text-[11px] leading-tight text-neutral-600">
                   {m.didascalia || getDummyCaption(index)}
                 </p>
@@ -125,7 +137,7 @@ export default function SelectedWorksGallery({
       {/* Sezione MURO */}
       {muroOpere.length > 0 && (
         <section className="mb-24">
-          <h2 className="mb-12 text-4xl font-normal uppercase tracking-wide text-neutral-900">
+          <h2 className="mb-12 text-4xl font-normal uppercase tracking-wide text-neutral-900 md:text-center">
             Muro
           </h2>
           <ul className="grid grid-cols-1 gap-10">
@@ -144,6 +156,11 @@ export default function SelectedWorksGallery({
                     sizes="(max-width: 1024px) 100vw, 896px"
                   />
                 </button>
+                <ProjectImagePreview
+                  images={opera.images}
+                  projectName={opera.name}
+                  onOpen={() => setOpen({ name: opera.name, images: opera.images })}
+                />
                 <div className="mt-3 text-center">
                   <p className="text-xs font-medium uppercase tracking-wide text-neutral-900">
                     {opera.name}
@@ -161,7 +178,7 @@ export default function SelectedWorksGallery({
       {/* Sezione CUMULI */}
       {cumuliOpere.length > 0 && (
         <section className="mb-24">
-          <h2 className="mb-12 text-4xl font-normal uppercase tracking-wide text-neutral-900">
+          <h2 className="mb-12 text-4xl font-normal uppercase tracking-wide text-neutral-900 md:text-center">
             Cumuli
           </h2>
           <ul className="grid grid-cols-1 gap-10">
@@ -180,6 +197,11 @@ export default function SelectedWorksGallery({
                     sizes="(max-width: 1024px) 100vw, 896px"
                   />
                 </button>
+                <ProjectImagePreview
+                  images={opera.images}
+                  projectName={opera.name}
+                  onOpen={() => setOpen({ name: opera.name, images: opera.images })}
+                />
                 <div className="mt-3 text-center">
                   <p className="text-xs font-medium uppercase tracking-wide text-neutral-900">
                     {opera.name}
@@ -194,16 +216,19 @@ export default function SelectedWorksGallery({
         </section>
       )}
 
-      {/* View a tutto schermo con tutte le foto del micromondo */}
+      <ArtworkSliderModal key={open?.name ?? "closed"} artwork={open} onClose={() => setOpen(null)} />
+
+      {/* Vecchia galleria mantenuta temporaneamente inattiva durante il test slider */}
       {mounted &&
         open &&
+        false &&
         createPortal(
           <div
             className="fixed inset-x-0 bottom-0 flex flex-col bg-black/75"
             style={{ top: modalTopOffset, zIndex: 11000 }}
             role="dialog"
             aria-modal="true"
-            aria-label={`Galleria ${open.name}`}
+            aria-label={`Galleria ${open!.name}`}
           >
             <div
               onClick={() => setOpen(null)}
@@ -231,7 +256,7 @@ export default function SelectedWorksGallery({
               className="relative z-10 flex-1 overflow-y-auto px-4 pb-8 pt-8 md:px-6 md:pb-20 md:pt-10"
             >
               <ul className="mx-auto grid w-full max-w-4xl grid-cols-1 gap-6 lg:grid-cols-2">
-                {open.images.map((src) => (
+                {open!.images.map((src) => (
                   <li key={src} className="relative aspect-4/3 overflow-hidden rounded-lg bg-white">
                     <button
                       type="button"
@@ -282,7 +307,7 @@ export default function SelectedWorksGallery({
                   onClick={(e) => e.stopPropagation()}
                 >
                   <Image
-                    src={fullImage}
+                    src={fullImage!}
                     alt=""
                     width={2200}
                     height={2200}
@@ -300,6 +325,7 @@ export default function SelectedWorksGallery({
       {mounted &&
         fullImage &&
         !open &&
+        false &&
         createPortal(
           <div
             className="fixed inset-x-0 bottom-0 bg-black/95"
@@ -331,7 +357,7 @@ export default function SelectedWorksGallery({
               onClick={(e) => e.stopPropagation()}
             >
               <Image
-                src={fullImage}
+                src={fullImage!}
                 alt=""
                 width={2200}
                 height={2200}
