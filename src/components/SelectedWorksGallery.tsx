@@ -43,19 +43,6 @@ export default function SelectedWorksGallery({
     setMounted(true);
   }, []);
 
-  useEffect(() => {
-    const hasModalOpen = Boolean(open || fullImage);
-    const previousOverflow = document.body.style.overflow;
-
-    if (hasModalOpen) {
-      document.body.style.overflow = "hidden";
-    }
-
-    return () => {
-      document.body.style.overflow = previousOverflow;
-    };
-  }, [open, fullImage]);
-
   return (
     <>
       {nuovaInstallazione && (
